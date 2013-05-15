@@ -80,8 +80,4 @@ class TodosController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  def done
-    render text: params
-  end
 end

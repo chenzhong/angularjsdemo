@@ -1,11 +1,5 @@
 Angularrailsapp::Application.routes.draw do
-  resources :todos do
-    member do
-      get 'done'
-    end
-  end
-
-  resources :posts
+  resources :todos
 
   root to: 'home#index'
   
