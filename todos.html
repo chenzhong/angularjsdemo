@@ -1,0 +1,16 @@
+<h2>Todo</h2>
+<div data-ng-controller="TodoCtrl">
+    <span>{{remaining()}} of {{todos.length}} remaining</span>
+    [ <a href="" data-ng-click="archive()">delete</a> ]
+    <input type="search" data-ng-model="search" placeholder="search..." />
+    <ul>
+        <li data-ng-repeat="todo in todos | filter:search">
+        <input type="checkbox" data-ng-model="todo.done" data-ng-change="done(todo)" />
+        <span class="done-{{todo.done}}">{{todo.text}}</span>
+        </li>
+    </ul>
+    <form ng-submit="addTodo()">
+        <input type="text" data-ng-model="todoText" placeholder="Add new todo..." />
+        <input type="submit" value="add" />
+    </form>
+</div>

@@ -7,7 +7,14 @@ angular.module('appservices', ['ngResource']).
         });
 });
 
-angular.module('app', ['appservices']);
+angular.module('routes', [], function($routeProvider) {
+    $routeProvider
+        .when('/todos', {templateUrl: 'todos.html', controller: TodoCtrl})
+        .when('/about', {templateUrl: 'about.html'})
+        .otherwise({redirectTo: '/todos'});
+});
+
+angular.module('app', ['appservices', 'routes']);
 
 function TodoCtrl($scope, Todo, $resource) {
     $scope.todos = Todo.query();
